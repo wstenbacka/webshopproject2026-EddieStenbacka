@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import SimpleClassComponent from "./src/components/SimpleClassComponent.jsx"
-import SimpleFunctionComponent from "./src/components/SimpleFunctionalComponent.jsx"
-import {Item1, Item2} from "./components/items.js"
-import {BrowserRouter Route, Routes} from "react-router-dom"
-import './App.css'
+import { useState } from 'react';
+import SimpleClassComponent from "./src/components/SimpleClassComponent.js";
+import SimpleFunctionComponent from "./src/components/SimpleFunctionalComponent.js";
+import {Item1, Item2} from "./components/items.js";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0)
