@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import SimpleClassComponent from "./src/components/SimpleClassComponent.js";
-import SimpleFunctionComponent from "./src/components/SimpleFunctionalComponent.js";
+import SimpleClassComponent from "./components/SimpleClassComponent.jsx";
+import SimpleFunctionComponent from "./components/SimpleFunctionalComponent.jsx";
+import CounterWithUseState from './components/hooks/CounterWithUseState.jsx';
+import CounterWithoutHook from './components/hooks/CounterWithoutHook.jsx';
 import {Item1, Item2} from "./components/items.js";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './App.css';
@@ -11,6 +13,10 @@ function App() {
   return (
     <>
       <BrowserRouter>
+
+        <Navbar/>
+        <CounterWithoutHook/>
+        <CounterWithUseState/>
 
         <>SimpleClassComponent</>
         <>SimpleFunctionalComponent item1 = {Item1}, item2 = {Item2}</>
