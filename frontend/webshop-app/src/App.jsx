@@ -8,6 +8,7 @@ import SimpleFunctionComponent from "./components/SimpleFunctionalComponent.jsx"
 import CounterWithoutHook from './components/hooks/CounterWithoutHook.jsx';
 import CounterWithUseState from './components/hooks/CounterWithUseState.jsx';
 import CounterWithUseEffect from './components/hooks/CounterWithUseEffect.jsx';
+import CounterWithUseRef from './components/hooks/CounterWithUseRef.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
         <CounterWithoutHook/>
         <CounterWithUseState/>
         <CounterWithUseEffect/>
+        <CounterWithUseRef/>
 
         <Routes>
           <Route path="/" element={<SimpleClassComponent />}/>
