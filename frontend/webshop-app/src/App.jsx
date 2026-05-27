@@ -5,30 +5,28 @@ import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import SimpleClassComponent from "./components/SimpleClassComponent.jsx";
 import SimpleFunctionComponent from "./components/SimpleFunctionalComponent.jsx";
-import CounterWithoutHook from './components/hooks/CounterWithoutHook.jsx';
-import CounterWithUseState from './components/hooks/CounterWithUseState.jsx';
-import CounterWithUseEffect from './components/hooks/CounterWithUseEffect.jsx';
-import CounterWithUseRef from './components/hooks/CounterWithUseRef.jsx';
+import HooksContainer from './components/HooksContainer.jsx';
+import ThemeComponent from './components/ThemeComponent.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
 
-        <Navbar/>
-        <CounterWithoutHook/>
-        <CounterWithUseState/>
-        <CounterWithUseEffect/>
-        <CounterWithUseRef/>
+          <Navbar/>
 
-        <Routes>
-          <Route path="/" element={<SimpleClassComponent />}/>
-          <Route path="/functional" element={<SimpleFunctionComponent item1={Item1} item2={Item2}/>}/>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<SimpleClassComponent />}/>
+            <Route path="/functional" element={<SimpleFunctionComponent item1={Item1} item2={Item2}/>}/>
+            <Route path="/hooks" element={<HooksContainer/>}/>
+            <Route path="/theme" element={<ThemeComponent/>}/>
+          </Routes>
 
-      </BrowserRouter>
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   )
 }

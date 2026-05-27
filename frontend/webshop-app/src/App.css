@@ -182,3 +182,20 @@
     border-right-color: var(--border);
   }
 }
+
+.theme-component.light {
+  background-color: white;
+}
+
+
+.theme-component.dark {
+  background-color: darkgray;
+}
+
+.theme-text.light {
+  background-color: black;
+}
+
+.theme-text.dark {
+  background-color: white;
+}
