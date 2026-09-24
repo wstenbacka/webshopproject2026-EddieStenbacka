@@ -12,5 +12,9 @@ The following requirements are met:
 - 1 (a-c)
 
 ## Running the project
+
+Start the backend by navigating to backend and run the command ```python manage.py runserver```
+Open the server in a browser at http://127.0.0.1:8000/
+
 Start the app by navigating to frontend -> webshop-app.
 For any OS, run the command ```npm run dev```.
