@@ -1,56 +1,56 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from api.models import Card
+from api.models import Item
 from django.shortcuts import redirect
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Card
-from .serializers import CardSerializer
+from .models import Item
+from .serializers import ItemSerializer
 from rest_framework.views import APIView
 
 # Create your views here.
 
-class CardListAPIView(APIView):
+class ItemListAPIView(APIView):
     def get(self, request):
-        cards = Card.objects.all()
-        serializer = CardSerializer(card, many = True)
-        return Response(serializer)
+        items = Item.objects.all()
+        serializer = ItemSerializer(items, many = True)
+        return Response(serializer.data)
 
     def post(self, request):
-        serializer = CardSerializer(data = request.data)
+        serializer = ItemSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status = status.HTTP_201_CREATED)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
-class CardDetailAPIView(APIView):
+class ItemDetailAPIView(APIView):
     def get_object(self, pk):
         try:
-            return Card.objects.get(pk = pk)
-        except Card.DoesNotExist:
+            return Item.objects.get(pk = pk)
+        except Item.DoesNotExist:
             return None
 
     def get(self, request, pk):
-        card = self.get_object(pk)
-        if card is None:
-            return Response({"error":"Card not found"}, status = status.HTTP_404_NOT_FOUND)
-        serializer = CardSerializer(card)
+        item = self.get_object(pk)
+        if item is None:
+            return Response({"error":"Item not found"}, status = status.HTTP_404_NOT_FOUND)
+        serializer = ItemSerializer(item)
         return Response(serializer.data)
 
     def put(self, request, pk):
-        card = self.get_object(pk)
-        if card is None:
+        item = self.get_object(pk)
+        if item is None:
             return Response({"error":"Card not found"}, status = status.HTTP_404_NOT_FOUND)
-        serializer = CardSerializer(card, data = request.data)
+        serializer = ItemSerializer(item, data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        card = self.get_object(pk)
-        if card is None:
-            return Response({"error":"Card not found"}, status = status.HTTP_404_NOT_FOUND)
-        card.delete()
+        item = self.get_object(pk)
+        if item is None:
+            return Response({"error":"Item not found"}, status = status.HTTP_404_NOT_FOUND)
+        item.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)

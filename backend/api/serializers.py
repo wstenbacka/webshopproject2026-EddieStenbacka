@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from .models import Card
+from .models import Item
 
-class CardSerializer(serializers.ModelSerializer):
+class ItemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Card
-        fields = ['id', 'color', 'created_at']
+        model = Item
+        fields = ['id', 'price', 'desc', 'created_at', 'seller']
 

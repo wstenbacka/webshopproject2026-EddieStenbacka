@@ -13,8 +13,10 @@ The following requirements are met:
 
 ## Running the project
 
+Start the virtual environment by navigating to the backend > venv > Scripts and run the command ```activate```.
+
 Start the backend by navigating to backend and run the command ```python manage.py runserver```
-Open the server in a browser at http://127.0.0.1:8000/
+Open the server in a browser at http://127.0.0.1:8000/.
 
 Start the app by navigating to frontend -> webshop-app.
 For any OS, run the command ```npm run dev```.

@@ -7,6 +7,6 @@ from api import views as apiViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/cards/', apiViews.CardListAPIView.as_view(), name = 'card-list'),
-    path('api/cards/<int:pk>/', apiViews.CardDetailAPIView.as_view(), name = 'card-detail'),
+    path('api/items/', apiViews.ItemListAPIView.as_view(), name = 'item-list'),
+    path('api/items/<int:pk>/', apiViews.ItemDetailAPIView.as_view(), name = 'item-detail'),
 ]
