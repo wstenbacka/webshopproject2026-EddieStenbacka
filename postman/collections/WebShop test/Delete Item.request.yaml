@@ -1,4 +1,4 @@
 $kind: http-request
 url: ""
-method: GET
+method: DELETE
 order: 4196497351766524

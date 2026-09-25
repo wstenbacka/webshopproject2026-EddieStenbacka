@@ -1,4 +1,4 @@
 $kind: http-request
 url: ""
-method: GET
+method: PUT
 order: 4320386476739334
